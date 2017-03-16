@@ -1,3 +1,18 @@
-<h1>编辑讨论版</h1>
+<div class="col-md-4 col-md-offset-4">
+    <h2>编辑讨论版</h2>
 
-<%= render "groups/form" %>
+    <hr>
+    <%= form_for @group do |f| %>
+
+    标题
+    <%= f.text_field :title %>
+    <br>
+    叙述
+    <br>
+    <%= f.text_area :description %>
+    <br>
+
+    <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+    <% end %>
+
+</div>
