@@ -40,6 +40,18 @@ class GroupsController < ApplicationController
     redirect_to groups_path, alert: "Group Deleted ."
   end
 
+  def upvote
+    @group = Group.find(params[:id])
+    @group.votes.create
+    redirect_to groups_path, notice: "感谢支持 ！"
+  end
+
+  def devote
+    @group = Group.find(params[:id])
+    @group.votes.first.destroy if @group.votes.count > 0
+    redirect_to groups_path, alert: "真的这么残忍吗 ？！"
+  end
+
   private
 
   def group_params
