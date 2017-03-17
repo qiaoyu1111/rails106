@@ -10,13 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @groups.each do |group| %>
+      <% @groups.sort_by{|group| -group.votes.count }.each do |group| %>
         <tr>
           <td>#</td>
           <td><%= link_to(group.title, group_path(group)) %></td>
           <td><%= pluralize(group.votes.count, "vote") %></td>
-          <td><%= button_to '+1', upvote_group_path(group), method: :post %></td>
-          <td><%= button_to '-1', devote_group_path(group), method: :post %></td>
+          <td><%= button_to '😊', upvote_group_path(group), method: :post %></td>
+          <td><%= button_to '😢', devote_group_path(group), method: :post %></td>
           <td>
               <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
               <%= link_to("Delete", group_path(group),    class: "btn btn-sm btn-default",
