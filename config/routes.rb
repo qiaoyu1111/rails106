@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     member do
       post 'upvote'
       post 'devote'
+      post :join
+      post :quit
     end
   end
 
