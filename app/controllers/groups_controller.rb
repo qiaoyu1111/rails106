@@ -59,6 +59,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
+      current_user.join!(@group)
       redirect_to groups_path
     else
       render :new
