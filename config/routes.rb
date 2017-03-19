@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   end
 
   root 'groups#index'
+
+  namespace :acount do
+    resources :groups
+  end
 end
