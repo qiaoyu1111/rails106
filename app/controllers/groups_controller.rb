@@ -54,6 +54,16 @@ class GroupsController < ApplicationController
     redirect_to groups_path, alert: "真的这么残忍吗 ？！"
   end
 
+  def create
+  @group = Group.new(group_params)
+
+  if @group.save
+    redirect_to groups_path
+  else
+    render :new
+  end
+end
+
   private
 
   def group_params
